@@ -1,0 +1,32 @@
+services:
+  product-service:
+    build:
+      context: ../services/product-service
+    container_name: product-service
+    volumes:
+      - ../services/product-service:/app
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - DB_HOST=host.docker.internal
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=products_db
+
+  inventory-service:
+    build:
+      context: ../services/inventory-service
+    container_name: inventory-service
+    volumes:
+      - ../services/inventory-service:/app
+    ports:
+      - "3002:3002"
+    environment:
+      - DB_HOST=host.docker.internal
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=inventory_db
+
