@@ -16,8 +16,11 @@ restart:
 ps:
 	docker compose -f docker/docker-compose.yml -f docker/docker-compose.override.yml ps
 
-exec:
+exec-product:
 	docker exec -it product-service sh
+
+exec-inventory:
+	docker exec -it inventory-service sh
 
 rebuild-product:
 	docker compose -f docker/docker-compose.yml -f docker/docker-compose.override.yml build product-service
