@@ -95,7 +95,7 @@ services:
       - "5778:5778"
       - "14268:14268"
 
-  postgres:
+  products-postgres:
     image: postgres:15
     restart: always
     environment:
@@ -105,7 +105,19 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - products_pgdata:/var/lib/postgresql/data
+
+  inventory-postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: inventory_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - inventory_pgdata:/var/lib/postgresql/data
 
   product-service:
     image: node:23
@@ -113,18 +125,28 @@ services:
   inventory-service:
     image: node:23
 
-  postgres-exporter:
+  products-exporter:
     image: prometheuscommunity/postgres-exporter
     environment:
       DATA_SOURCE_NAME: "postgresql://postgres:postgres@postgres:5432/products_db?sslmode=disable"
     ports:
       - "9187:9187"
     depends_on:
-      - postgres
+      - products-postgres
+
+  inventory-exporter:
+    image: prometheuscommunity/postgres-exporter
+    environment:
+      DATA_SOURCE_NAME: "postgresql://postgres:postgres@postgres:5432/inventory_db?sslmode=disable"
+    ports:
+      - "9188:9187"
+    depends_on:
+      - inventory-postgres
 
 volumes:
   keycloak_data:
   kong_db_data:
   redis_data:
   grafana_data:
-  pgdata:
+  inventory_pgdata:
+  products_pgdata:
