@@ -9,7 +9,7 @@ services:
       - "3001:3001"
     environment:
       - PORT=3001
-      - DB_HOST=host.docker.internal
+      - DB_HOST=products-db
       - DB_PORT=5432
       - DB_USER=postgres
       - DB_PASSWORD=postgres
@@ -24,7 +24,8 @@ services:
     ports:
       - "3002:3002"
     environment:
-      - DB_HOST=host.docker.internal
+      - PORT=3002
+      - DB_HOST=inventory-db
       - DB_PORT=5432
       - DB_USER=postgres
       - DB_PASSWORD=postgres

@@ -6,9 +6,9 @@ const seedInventory = async () => {
     try {
         console.log('🌱 Ejecutando seed de inventario...');
 
-        // 🔁 Reemplazá estos IDs por los reales (copiados de product-service)
-        const item1L = '33eae516-15c4-447c-b99a-7ef02791f0b5'; // SKU: CLX-1L
-        const item5L = '0d3f705c-6d6b-447f-8522-f6119dec040a'; // SKU: CLX-5L
+        // Id's de la tabla product_items --> copialos por ahora
+        const item1L = 'e1f30453-e418-4033-8796-a993cdebea0d'; // SKU: CLX-1L
+        const item5L = '93b4f975-b5d9-4c06-96a4-108ffb2c744f'; // SKU: CLX-5L
 
         await InventoryEvent.bulkCreate([
             {
