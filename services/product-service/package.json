@@ -4,7 +4,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js"
+    "dev": "nodemon --legacy-watch server.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "body-parser": "^2.2.0",
@@ -15,6 +16,9 @@
     "product-service": "file:",
     "prom-client": "^14.2.0",
     "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
   },
   "keywords": [],
   "author": "",

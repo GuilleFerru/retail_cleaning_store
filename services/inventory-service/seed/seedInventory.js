@@ -7,8 +7,8 @@ const seedInventory = async () => {
         console.log('🌱 Ejecutando seed de inventario...');
 
         // Id's de la tabla product_items --> copialos por ahora
-        const item1L = 'e1f30453-e418-4033-8796-a993cdebea0d'; // SKU: CLX-1L
-        const item5L = '93b4f975-b5d9-4c06-96a4-108ffb2c744f'; // SKU: CLX-5L
+        const item1L = '54f47757-5baf-46e7-8fd4-1576dcea3201'; // SKU: CLX-1L
+        const item5L = '2712ca98-afe0-4068-b2cc-4f251b8ea5f4'; // SKU: CLX-5L
 
         await InventoryEvent.bulkCreate([
             {

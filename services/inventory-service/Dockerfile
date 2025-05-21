@@ -16,5 +16,8 @@ COPY . .
 # Puerto expuesto (3001 por default)
 EXPOSE 3002
 
-# Comando de inicio
-CMD ["npm", "start"]
+# Comando de inicio para dev
+CMD ["npm", "run", "dev"]
+
+# Comando de inicio para producción
+# CMD ["npm", "start"]
