@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import { register } from './metrics/metrics.js';
 import productRoutes from './routes/productRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
+import variationRoutes from './routes/variationRoutes.js'; // Asumiendo que tienes un archivo de rutas para variaciones
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 // Rutas del dominio
 app.use('/products', productRoutes);
 app.use('/categories', categoryRoutes);
+app.use('/variations', variationRoutes); // Asumiendo que las variantes son parte de los productos
 
 
 // Ruta para Prometheus
