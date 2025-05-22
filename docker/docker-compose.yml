@@ -120,11 +120,28 @@ services:
       - "5433:5432"
     volumes:
       - inventory_pgdata:/var/lib/postgresql/data
+  
+  pricing-postgres:
+    image: postgres:15
+    container_name: pricing-db
+    restart: always
+    environment:
+      POSTGRES_DB: pricing_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - pricing_pgdata:/var/lib/postgresql/data
+
 
   product-service:
     image: node:23
   
   inventory-service:
+    image: node:23
+
+  pricing-service:
     image: node:23
 
   # products-exporter:
@@ -150,5 +167,7 @@ volumes:
   # kong_db_data:
   # redis_data:
   # grafana_data:
-  inventory_pgdata:
   products_pgdata:
+  inventory_pgdata:
+  pricing_pgdata:
+  
