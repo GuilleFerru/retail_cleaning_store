@@ -13,21 +13,24 @@ const seedAll = async () => {
     try {
         console.log('🌱 Iniciando seed general...');
 
-        // 1. Categorías
+        // Categorías
         const limpieza = await ProductCategory.create({ category_name: 'Limpieza' });
         const lavandinas = await ProductCategory.create({ category_name: 'Lavandinas', parent_category_id: limpieza.id });
+        const jabones = await ProductCategory.create({ category_name: 'Jabones', parent_category_id: limpieza.id });
 
         const ferreteria = await ProductCategory.create({ category_name: 'Ferretería' });
         const herramientas = await ProductCategory.create({ category_name: 'Herramientas', parent_category_id: ferreteria.id });
 
-        // 2. Variaciones para Lavandinas
+        // Variaciones para Lavandinas
         const tamaño = await Variation.create({ name: 'Tamaño', category_id: lavandinas.id });
+        const variedadJabón = await Variation.create({ name: 'Variedad', category_id: jabones.id });
 
-        // 3. Opciones para esa variación
+        // Opciones para esa variación
         const chico = await VariationOption.create({ value: '1L', variation_id: tamaño.id });
         const grande = await VariationOption.create({ value: '5L', variation_id: tamaño.id });
+        const jabonLiquido = await VariationOption.create({ value: 'Jabón Líquido', variation_id: variedadJabón.id });
 
-        // 4. Producto base
+        // Producto base
         const producto = await Product.create({
             name: 'Lavandina Clorox',
             description: 'Lavandina a base de cloro para desinfección',
@@ -35,7 +38,7 @@ const seedAll = async () => {
             product_image: 'https://example.com/lavandina.png'
         });
 
-        // 5. SKUs (uno por variación)
+        // SKUs (uno por variación)
         const itemChico = await ProductItem.create({
             sku: 'CLX-1L',
             product_id: producto.id,
@@ -48,7 +51,7 @@ const seedAll = async () => {
             product_image: 'https://example.com/lavandina-5L.png'
         });
 
-        // 6. Configuración de variaciones por SKU
+        // Configuración de variaciones por SKU
         await ProductConfiguration.bulkCreate([
             {
                 product_item_id: itemChico.id,
