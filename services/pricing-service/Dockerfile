@@ -14,7 +14,7 @@ RUN npm install -g nodemon && npm install
 COPY . .
 
 # Puerto expuesto (3001 por default)
-EXPOSE 3001
+EXPOSE 3003
 
 # Comando de inicio para dev
 CMD ["npm", "run", "dev"]

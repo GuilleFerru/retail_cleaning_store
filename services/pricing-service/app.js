@@ -3,6 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { register } from './metrics/metrics.js';
+import pricingRoutes from './routes/pricingRoutes.js'; // Asumiendo que tienes un archivo de rutas para precios
 
 
 dotenv.config();
@@ -11,6 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Rutas del dominio
+app.use('/pricing', pricingRoutes)
 
 
 // Ruta para Prometheus
