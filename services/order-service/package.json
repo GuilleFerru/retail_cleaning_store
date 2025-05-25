@@ -1,5 +1,5 @@
 {
-  "name": "pricing-service",
+  "name": "order-service",
   "version": "1.0.0",
   "main": "app.js",
   "type": "module",
@@ -11,9 +11,9 @@
     "body-parser": "^2.2.0",
     "dotenv": "^16.5.0",
     "express": "^4.21.2",
+    "order-service": "file:",
     "pg": "^8.15.6",
     "pg-hstore": "^2.3.4",
-    "pricing-service": "file:",
     "prom-client": "^14.2.0",
     "sequelize": "^6.37.7"
   },

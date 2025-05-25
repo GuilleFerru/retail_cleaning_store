@@ -95,6 +95,16 @@ services:
   #     - "5778:5778"
   #     - "14268:14268"
 
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"   # puerto de comunicación con servicios
+      - "15672:15672" # puerto de la UI web
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
   products-postgres:
     image: postgres:15
     container_name: products-db
@@ -134,6 +144,19 @@ services:
     volumes:
       - pricing_pgdata:/var/lib/postgresql/data
 
+  order-postgres:
+    image: postgres:15
+    container_name: order-db
+    restart: always
+    environment:
+      POSTGRES_DB: order_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5436:5432"
+    volumes:
+      - order_pgdata:/var/lib/postgresql/data
+
 
   product-service:
     image: node:23
@@ -142,6 +165,8 @@ services:
     image: node:23
 
   pricing-service:
+    image: node:23
+  order-service:
     image: node:23
 
   # products-exporter:
@@ -170,4 +195,5 @@ volumes:
   products_pgdata:
   inventory_pgdata:
   pricing_pgdata:
+  order_pgdata:
   
