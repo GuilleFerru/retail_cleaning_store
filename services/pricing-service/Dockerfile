@@ -5,7 +5,7 @@ FROM node:23-slim
 WORKDIR /app
 
 # Copiar dependencias
-COPY package.json ./    
+COPY package*.json ./    
 
 # Instalar nodemon y dependencias
 RUN npm install -g nodemon && npm install

@@ -7,8 +7,8 @@ const seedPricing = async () => {
         console.log('🌱 Ejecutando seed de pricing...');
 
         // Reemplazá estos con IDs reales de product_item que tengas cargados
-        const item1 = 'c24ebe36-68cb-4820-91bd-11b96a03d055'; // por ejemplo: CLX-1L
-        const item2 = 'd5186e0a-0638-49e0-ae01-696994552f40'; // por ejemplo: CLX-5L
+        const item1 = '947186d8-96d9-4fb8-9550-6fe8277d43ce'; // SKU: CLX-1L
+        const item2 = 'fbe62b40-80a0-4e90-b8c2-03c7c1807e83'; // SKU: CLX-5L
 
         await Pricing.bulkCreate([
             {

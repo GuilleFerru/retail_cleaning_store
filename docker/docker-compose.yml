@@ -157,17 +157,64 @@ services:
     volumes:
       - order_pgdata:/var/lib/postgresql/data
 
-
   product-service:
-    image: node:23
-  
+    build:
+      context: ../services/product-service
+      dockerfile: Dockerfile
+    container_name: product-service
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - DB_HOST=products-db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=products_db
+    volumes:
+      - ../services/product-service:/app
+      - product_node_modules:/app/node_modules
+
   inventory-service:
-    image: node:23
+    build:
+      context: ../services/inventory-service
+      dockerfile: Dockerfile
+    container_name: inventory-service
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+      - DB_HOST=inventory-db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=inventory_db
+    volumes:
+      - ../services/inventory-service:/app
+      - inventory_node_modules:/app/node_modules
 
   pricing-service:
-    image: node:23
+    build:
+      context: ../services/pricing-service
+      dockerfile: Dockerfile
+    container_name: pricing-service
+    ports:
+      - "3003:3003"
+    environment:
+      - PORT=3003
+      - DB_HOST=pricing-db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=pricing_db
+    volumes:
+      - ../services/pricing-service:/app
+      - pricing_node_modules:/app/node_modules
+
   order-service:
     image: node:23
+    depends_on:
+      - order-postgres
 
   # products-exporter:
   #   image: prometheuscommunity/postgres-exporter
@@ -196,4 +243,8 @@ volumes:
   inventory_pgdata:
   pricing_pgdata:
   order_pgdata:
+  product_node_modules:
+  inventory_node_modules:
+  pricing_node_modules:
+  
   

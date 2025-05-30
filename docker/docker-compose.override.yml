@@ -1,67 +1,74 @@
-services:
-  product-service:
-    build:
-      context: ../services/product-service
-    container_name: product-service
-    volumes:
-      - ../services/product-service:/app
-      - /app/node_modules
-    ports:
-      - "3001:3001"
-    environment:
-      - PORT=3001
-      - DB_HOST=products-db
-      - DB_PORT=5432
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
-      - DB_NAME=products_db
+# services:
+#   product-service:
+#     build:
+#       context: ../services/product-service
+#     container_name: product-service
+#     volumes:
+#       - ../services/product-service:/app
+#       - product_node_modules:/app/node_modules
+#     ports:
+#       - "3001:3001"
+#     environment:
+#       - PORT=3001
+#       - DB_HOST=products-db
+#       - DB_PORT=5432
+#       - DB_USER=postgres
+#       - DB_PASSWORD=postgres
+#       - DB_NAME=products_db
 
-  inventory-service:
-    build:
-      context: ../services/inventory-service
-    container_name: inventory-service
-    volumes:
-      - ../services/inventory-service:/app
-      - /app/node_modules
-    ports:
-      - "3002:3002"
-    environment:
-      - PORT=3002
-      - DB_HOST=inventory-db
-      - DB_PORT=5432
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
-      - DB_NAME=inventory_db
+#   inventory-service:
+#     build:
+#       context: ../services/inventory-service
+#     container_name: inventory-service
+#     volumes:
+#       - ../services/inventory-service:/app
+#       - inventory_node_modules:/app/node_modules
+      
+#     ports:
+#       - "3002:3002"
+#     environment:
+#       - PORT=3002
+#       - DB_HOST=inventory-db
+#       - DB_PORT=5432
+#       - DB_USER=postgres
+#       - DB_PASSWORD=postgres
+#       - DB_NAME=inventory_db
 
-  pricing-service:
-    build:
-      context: ../services/pricing-service
-    container_name: pricing-service
-    volumes:
-      - ../services/pricing-service:/app
-      - /app/node_modules
-    ports:
-      - "3003:3003"
-    environment:
-      - PORT=3003
-      - DB_HOST=pricing-db
-      - DB_PORT=5432
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
-      - DB_NAME=pricing_db
-  order-service:
-    build:
-      context: ../services/order-service
-    container_name: order-service
-    volumes:
-      - ../services/order-service:/app
-      - /app/node_modules
-    ports:
-      - "3004:3004"
-    environment:
-      - PORT=3004
-      - DB_HOST=order-db
-      - DB_PORT=5432
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
-      - DB_NAME=order_db
+#   # pricing-service:
+#   #   build:
+#   #     context: ../services/pricing-service
+#   #   container_name: pricing-service
+#   #   volumes:
+#   #     - ..:/services/pricing-service:/app
+#   #     - pricing_node_modules:/app/node_modules
+#   #   ports:
+#   #     - "3003:3003"
+#   #   environment:
+#   #     - PORT=3003
+#   #     - DB_HOST=pricing-db
+#   #     - DB_PORT=5432
+#   #     - DB_USER=postgres
+#   #     - DB_PASSWORD=postgres
+#   #     - DB_NAME=pricing_db
+#   # order-service:
+#   #   build:
+#   #     context: ../services/order-service
+#   #   container_name: order-service
+#   #   volumes:
+#   #     - ..:/services/order-service:/app
+#   #     - order_node_modules:/app/node_modules
+#   #   ports:
+#   #     - "3004:3004"
+#   #   environment:
+#   #     - PORT=3004
+#   #     - DB_HOST=order-db
+#   #     - DB_PORT=5432
+#   #     - DB_USER=postgres
+#   #     - DB_PASSWORD=postgres
+#   #     - DB_NAME=order_db
+
+# volumes:
+#   product_node_modules:
+#   inventory_node_modules:
+#   pricing_node_modules:
+#   order_node_modules:

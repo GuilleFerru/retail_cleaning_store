@@ -1,4 +1,21 @@
+# Ignora dependencias instaladas en el host
 node_modules
 npm-debug.log
-.env
 package-lock.json
+
+# Ignora archivos de control de versión
+.git
+.gitignore
+
+# Ignora archivos del sistema y de desarrollo
+.DS_Store
+*.swp
+
+# Archivos de configuración locales
+.env
+.env.local
+
+# Docker files que no necesitas dentro del contenedor
+docker-compose.yml
+docker-compose.override.yml
+.dockerignore
