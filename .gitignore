@@ -1,0 +1,31 @@
+# Archivos de entorno y variables sensibles
+.env
+*.env.*
+
+# Claves y credenciales
+kong_api_keys.txt
+init_kong_consumers.sh
+
+# Datos de bases de datos y volúmenes
+**/data/
+**/volumes/
+
+# Archivos temporales y logs
+*.log
+*.tmp
+
+# Node modules y dependencias
+node_modules/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
+
+# Ignorar archivos de configuración locales
+*.local.js
+*.local.json
+
+# ¡Agrega aquí otros archivos sensibles de tu proyecto!
