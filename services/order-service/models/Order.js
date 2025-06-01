@@ -34,7 +34,8 @@ const Order = sequelize.define('Order', {
     },
     payment_method: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'credit_card'
     },
     status: {
         type: DataTypes.STRING,

@@ -12,7 +12,7 @@ consumers:
           -----BEGIN PUBLIC KEY-----
           MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuWKQaCfmeXuTeCHDJvIbNYRv56WbwaDYhPBCFNmY08i1wDC+ScxLtn8NfW/qIwK9L3eShfBNs8IdifKLwLHbP6bgLt7wUTnhjMRu+yrvtWJYB3d/7q2AGkvP1a26J0siKuYFiwd/ipabXt22+4DdQxrrfVIZ/XBJiX0WGKqD7FclZVcZ56xOuJtN0O4j+4SLvqw5D1KXAL4iLvYES/2Yjll4MblDpmFn5EFEUv90m+/Y96K2tOHYScqCHSA+fgMmJq55gLcBmt9RYq3h5ljo1/mtz7H1i+T/54RfyC4X7yn6V2m1pJeHTr8s5+avxpPR+S835gcOhhmvIgMABdnU/QIDAQAB
           -----END PUBLIC KEY-----
-        key: kong-keycloak
+        key: http://localhost:8080/realms/retail-cleaning-store
         secret: "dummy"
 
 services:

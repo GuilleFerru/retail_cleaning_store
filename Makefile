@@ -36,3 +36,7 @@ rebuild-inventory:
 rebuild-pricing:
 	docker compose -f docker/docker-compose.yml -f docker/docker-compose.override.yml build pricing-service
 	docker compose -f docker/docker-compose.yml -f docker/docker-compose.override.yml up -d pricing-service
+
+rebuild-order:
+	docker compose -f docker/docker-compose.yml -f docker/docker-compose.override.yml build order-service
+	docker compose -f docker/docker-compose.yml -f docker/docker-compose.override.yml up -d order-service

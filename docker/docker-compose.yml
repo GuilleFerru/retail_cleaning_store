@@ -195,8 +195,8 @@ services:
     container_name: product-service
     # ¡IMPORTANTE! El siguiente mapeo de puertos es SOLO para desarrollo/debug.
     # En producción, elimina esta sección para que el servicio solo sea accesible desde Kong.
-    ports:
-      - "3001:3001"
+    # ports:
+    #   - "3001:3001"
     environment:
       - PORT=3001
       - DB_HOST=products-db
@@ -215,8 +215,8 @@ services:
     container_name: inventory-service
     # ¡IMPORTANTE! El siguiente mapeo de puertos es SOLO para desarrollo/debug.
     # En producción, elimina esta sección para que el servicio solo sea accesible desde Kong.
-    ports:
-      - "3002:3002"
+    # ports:
+    #   - "3002:3002"
     environment:
       - PORT=3002
       - DB_HOST=inventory-db
@@ -235,8 +235,8 @@ services:
     container_name: pricing-service
     # ¡IMPORTANTE! El siguiente mapeo de puertos es SOLO para desarrollo/debug.
     # En producción, elimina esta sección para que el servicio solo sea accesible desde Kong.
-    ports:
-      - "3003:3003"
+    # ports:
+    #   - "3003:3003"
     environment:
       - PORT=3003
       - DB_HOST=pricing-db
@@ -255,8 +255,8 @@ services:
     container_name: order-service
     # ¡IMPORTANTE! El siguiente mapeo de puertos es SOLO para desarrollo/debug.
     # En producción, elimina esta sección para que el servicio solo sea accesible desde Kong.
-    ports:
-      - "3004:3004"
+    # ports:
+    #   - "3004:3004"
     environment:
       - PORT=3004
       - DB_HOST=order-db

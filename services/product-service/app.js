@@ -13,9 +13,9 @@ const app = express();
 app.use(bodyParser.json());
 
 // Rutas del dominio
-app.use('/products', productRoutes);
-app.use('/categories', categoryRoutes);
-app.use('/variations', variationRoutes); // Asumiendo que las variantes son parte de los productos
+app.use('/', productRoutes);
+app.use('/', categoryRoutes);
+app.use('/', variationRoutes); // Asumiendo que las variantes son parte de los productos
 
 
 // Ruta para Prometheus

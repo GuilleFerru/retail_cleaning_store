@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Rutas del dominio
-app.use('/pricing', pricingRoutes)
+app.use('/', pricingRoutes)
 
 
 // Ruta para Prometheus

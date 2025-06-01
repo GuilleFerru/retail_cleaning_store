@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon --legacy-watch server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seed/index.js"
   },
   "dependencies": {
     "body-parser": "^2.2.0",
     "dotenv": "^16.5.0",
     "express": "^4.21.2",
+    "express-validator": "^7.2.1",
     "order-service": "file:",
     "pg": "^8.15.6",
     "pg-hstore": "^2.3.4",

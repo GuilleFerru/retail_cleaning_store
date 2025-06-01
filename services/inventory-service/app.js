@@ -10,6 +10,6 @@ const app = express();
 app.use(bodyParser.json());
 
 // Rutas principales
-app.use('/inventory', inventoryRoutes);
+app.use('/', inventoryRoutes);
 
 export default app;

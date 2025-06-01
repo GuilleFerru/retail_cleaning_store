@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Rutas del dominio
-app.use('/order', orderRoutes)
+app.use('/', orderRoutes)
 
 
 // Ruta para Prometheus
